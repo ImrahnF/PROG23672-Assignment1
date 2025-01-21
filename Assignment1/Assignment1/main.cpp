@@ -49,6 +49,7 @@ void main_loop() {
 }
 
 int main() {
+    /*
     //main_loop();
     Inventory inv(2);
     
@@ -64,6 +65,6 @@ int main() {
     
     inv.removeItem(1);
     inv.displayItems();
-    
+    */
     return 0;
 }
