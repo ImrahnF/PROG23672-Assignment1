@@ -49,13 +49,13 @@ void main_loop() {
 }
 
 int main() {
-    /*
-    //main_loop();
-    Inventory inv(2);
     
-    Item* mac = new Item(1, "Mac n Cheese", 1, 1.01);
-    PerishableItem* apple = new PerishableItem(2, "Apple", 1, 1.01, "Febuary 21, 2004");
-    NonPerishableItem* stick = new NonPerishableItem(3, "Stick", 1, 1.01, 5);
+    //main_loop();
+    Inventory inv(5);
+    
+    Item* mac = new Item(1, "Macbook", 1, 1450.95);
+    PerishableItem* apple = new PerishableItem(2, "Apple", 12, 0.98, "Febuary 21, 2004");
+    NonPerishableItem* stick = new NonPerishableItem(3, "Stick", 3, 4.00, 90);
     
     inv.addItem(mac);
     inv.displayItems();
@@ -63,8 +63,8 @@ int main() {
     inv.addItem(stick);
     inv.displayItems();
     
-    inv.removeItem(1);
+    inv.removeItem(2);
     inv.displayItems();
-    */
+    
     return 0;
 }

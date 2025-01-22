@@ -26,7 +26,12 @@ public:
     int getId() const { return id; }
     const string& getName() const { return name; }
     int getQty() const { return quantity; }
-    double getPrice() const { return price; }	
+    double getPrice() const { return price; }
+    
+    // Display method (no need for a seperate cpp file)
+    virtual void display() {
+        cout << "[" << getId() << "] " << getName() << " | Qty: " << getQty() << "x @$" << getPrice() << endl;
+    }
 };
 
 #endif /* Item_hpp */

@@ -18,6 +18,12 @@ public:
     PerishableItem(int id, const string& name, int quantity, double price, const string& expirationDate)
     : Item(id, name, quantity, price), expirationDate(expirationDate) {}
     const string& getExpirationDate() const { return expirationDate; }
+    
+    // Display method including exp date
+    void display() override {
+        cout << "[" << getId() << "] " << getName() << " | Qty: " << getQty() << "x @$" << getPrice() <<
+        " (Expires on " << getExpirationDate() << ")" << endl;
+    }
 };
 
 #endif /* PerishableItem_hpp */

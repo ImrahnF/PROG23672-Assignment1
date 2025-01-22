@@ -36,12 +36,13 @@ void Inventory::removeItem(int id) {
 }
 
 void Inventory::displayItems() {
-    cout << "-----------------" << endl;
+    cout << "----------------------------------" << endl;
     for (Item* i : items) {
-        cout << "[" << i->getId() << "] - " << i->getName() << endl;
+        i->display();
+        //cout << "[" << i->getId() << "] - " << i->getName() << endl;
     }
     cout << "\nYou have a total of [" << itemCount << "] items." << endl;
-    cout << "-----------------" << endl;
+    cout << "----------------------------------" << endl;
 }
 
 void Inventory::saveToFile() {
