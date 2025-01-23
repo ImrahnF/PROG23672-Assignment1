@@ -27,20 +27,21 @@ void display_intro() {
 
 void main_loop() {
     display_intro();
-    
     int choice = 0;
     
-    while (choice != 6) {
-        cout << "Enter your desired choice:" << endl;
+    // Main method loop
+    while (choice != 6) { // 6 is the exit code/choice
+        cout << "// Please enter your choice: \\\\" << endl;
         cin >> choice;
+        
         switch (choice) {
-            case 1:
-                cout << "You are using the 'Add' feature " << endl;
+            case 1: // Add
+                cout << "Selected 'Add'" << endl;
                 break;
             case 6:
                 break;
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Please enter a valid input." << endl;
                 break;
         }
     }
@@ -48,23 +49,9 @@ void main_loop() {
     cout << "Thank you for using the Inventory Mangement System!" << endl;
 }
 
+
 int main() {
-    
-    //main_loop();
-    Inventory inv(5);
-    
-    Item* mac = new Item(1, "Macbook", 1, 1450.95);
-    PerishableItem* apple = new PerishableItem(2, "Apple", 12, 0.98, "Febuary 21, 2004");
-    NonPerishableItem* stick = new NonPerishableItem(3, "Stick", 3, 4.00, 90);
-    
-    inv.addItem(mac);
-    inv.displayItems();
-    inv.addItem(apple);
-    inv.addItem(stick);
-    inv.displayItems();
-    
-    inv.removeItem(2);
-    inv.displayItems();
+    main_loop();
     
     return 0;
 }

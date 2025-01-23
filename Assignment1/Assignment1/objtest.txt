@@ -1,0 +1,17 @@
+    /*
+    //main_loop();
+    Inventory inv(5);
+    
+    Item* mac = new Item(1, "Macbook", 1, 1450.95);
+    PerishableItem* apple = new PerishableItem(2, "Apple", 12, 0.98, "Febuary 21, 2004");
+    NonPerishableItem* stick = new NonPerishableItem(3, "Stick", 3, 4.00, 90);
+    
+    inv.addItem(mac);
+    inv.displayItems();
+    inv.addItem(apple);
+    inv.addItem(stick);
+    inv.displayItems();
+    
+    inv.removeItem(2);
+    inv.displayItems();
+    */

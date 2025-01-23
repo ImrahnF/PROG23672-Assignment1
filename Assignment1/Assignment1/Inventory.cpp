@@ -20,7 +20,6 @@ void Inventory::addItem(Item* item) {
     } else {
         cout << "You currently filled " << capacity << "/" << capacity << " slots" << endl;
     }
-    
 }
 
 void Inventory::removeItem(int id) {
