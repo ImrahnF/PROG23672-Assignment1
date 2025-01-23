@@ -9,6 +9,7 @@
 #define Inventory_hpp
 
 #include <iostream>
+#include <vector>
 #include "Item.hpp"
 
 using namespace std;

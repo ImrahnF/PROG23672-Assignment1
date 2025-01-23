@@ -17,31 +17,37 @@ void Inventory::addItem(Item* item) {
     if (itemCount < capacity) {
         items.push_back(item);
         ++itemCount;
-    } else {
+        cout << "\n\n\n\n --|| Added item '" << item->getName() << "' with ID of: " << item->getId() << " ||-- \n\n\n\n";
+    }
+    else {
         cout << "You currently filled " << capacity << "/" << capacity << " slots" << endl;
     }
 }
 
 void Inventory::removeItem(int id) {
-    for (auto i = items.begin(); i != items.end(); i++ ) {
+    bool found = false;
+    for (auto i = items.begin(); i != items.end(); i++) {
         if ((*i)->getId() == id) {
-            delete *i;
+            found = true;
+            delete* i;
             items.erase(i);
-            cout << "Deleted item (ID: " << id << ")" << endl;
+            cout << "\n\n\n\n --|| Deleted item (ID: " << id << ") ||--\n\n\n\n";
             --itemCount;
             break; // To stop iterating
         }
     }
+
+    if (!found) { cout << "\n\n\n\n --||Could not find item of ID: " << id << " ||--\n\n\n\n"; }
 }
 
 void Inventory::displayItems() {
-    cout << "----------------------------------" << endl;
+    cout << "\n\n==================================" << endl;
     for (Item* i : items) {
         i->display();
         //cout << "[" << i->getId() << "] - " << i->getName() << endl;
     }
     cout << "\nYou have a total of [" << itemCount << "] items." << endl;
-    cout << "----------------------------------" << endl;
+    cout << "==================================\n\n" << endl;
 }
 
 void Inventory::saveToFile() {
