@@ -20,6 +20,7 @@ void Inventory::addItem(Item* item) {
         items.push_back(item);
         ++itemCount;
         cout << "\n\n\n\n --|| Added item '" << item->getName() << "' with ID of: " << item->getId() << " ||-- \n\n\n\n";
+
     }
     else {
         cout << "You currently filled " << capacity << "/" << capacity << " slots" << endl;
@@ -55,10 +56,16 @@ void Inventory::displayItems() {
     cout << "==================================\n\n" << endl;
 }
 
-void Inventory::saveToFile() {
+void Inventory::saveToFile(string fileName) {
     // Implement save
+    cout << "\n\n==================================" << endl;
+    cout << "Saved to file: " << fileName << endl;
+    cout << "==================================\n\n" << endl;
 }
 
-void Inventory::loadFromFile() {
+void Inventory::loadFromFile(string fileName) {
     // Implement load
+    cout << "\n\n==================================" << endl;
+    cout << "Loaded from file: " << fileName << endl;
+    cout << "==================================\n\n" << endl;
 }

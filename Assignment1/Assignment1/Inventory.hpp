@@ -25,8 +25,8 @@ public:
     void addItem(Item*);
     void removeItem(int);
     void displayItems();
-    void saveToFile();
-    void loadFromFile();
+    void saveToFile(string);
+    void loadFromFile(string);
 };
 
 #endif /* Inventory_hpp */

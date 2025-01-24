@@ -6,6 +6,7 @@
 // Version History: https://github.com/ImrahnF/PROG23672-Assignment1
 
 #include <iostream>
+#include <regex>
 #include "Item.hpp"
 #include "PerishableItem.hpp"
 #include "NonPerishableItem.hpp"
@@ -69,9 +70,39 @@ bool validateString(string& choice) {
     return true; // non-empty
 }
 
+// Ensures that there is a legal file string format (eg. "file.txt" instead of "file.a.z.txt")
+// https://en.cppreference.com/w/cpp/regex
+bool validateRelativeFileName(string& fileName) {
+    //bool valid = false;
+    //if (fileName.empty()) { valid = false; }
+    
+    cin >> fileName;
+    
+    regex fileRule("(\\w)+\\.txt$");
+    
+    if (regex_match(fileName, fileRule)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+string getFileName() {
+    // Placeholder
+    string fileName;
+    
+    // Get the file name
+    cout << "\nPlease enter the file name you would like to work with:\n\n";
+    while (!validateRelativeFileName(fileName)) {
+        cout << "\n\n--||Please enter a valid file name.||--\n\n" << endl;
+    }
+    
+    return fileName;
+}
+
 // Handle inputs for creating an Item, inherited by either a perishable or non perishable item
 Item* createItem() {
-    cout << "\nCreating a new item!\n";
+    cout << "\nCreating a new item!\n\n";
     int perishable = 0; // 0 = NonPerishableItem, 1 = PerishableItem
 
     // Item attributes
@@ -174,13 +205,13 @@ int main() {
                 inv.displayItems();
                 break;
             case 4:
-                inv.saveToFile();
+                inv.saveToFile(getFileName());
                 break;
             case 5:
-                inv.loadFromFile();
+                inv.loadFromFile(getFileName());
                 break;
             case 6:
-                cout << "Exiting program.." << endl;
+                cout << "\n\n--||Exiting program...||--\n\n\n";
                 break;
             default:
                 cout << "\n\n--||Invalid choice. Try again.||--\n\n\n";

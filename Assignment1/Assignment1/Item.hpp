@@ -28,7 +28,7 @@ public:
     int getQty() const { return quantity; }
     double getPrice() const { return price; }
     
-    // Display method (no need for a seperate cpp file)
+    // Display method (no need for a seperate cpp file), wouldn't really be used.
     virtual void display() {
         cout << "[" << getId() << "] " << getName() << " | Qty: " << getQty() << "x @$" << getPrice() << endl;
     }
