@@ -3,7 +3,7 @@
 //  Assignment1
 //
 //  Created by Imrahn Faqiri on 2025-01-18.
-//
+// Version History: https://github.com/ImrahnF/PROG23672-Assignment1
 
 #include <iostream>
 #include "Item.hpp"
@@ -22,6 +22,7 @@ void display_options() {
     cout << "Please enter your choice:" << endl;
 }
 
+// Input validation methods for int, double, and strings
 bool validateDigits(int& choice) {
     cin >> choice;
 
@@ -68,6 +69,7 @@ bool validateString(string& choice) {
     return true; // non-empty
 }
 
+// Handle inputs for creating an Item, inherited by either a perishable or non perishable item
 Item* createItem() {
     cout << "\nCreating a new item!\n";
     int perishable = 0; // 0 = NonPerishableItem, 1 = PerishableItem
@@ -82,7 +84,7 @@ Item* createItem() {
     string exp;
     int warranty;
 
-    // Determine whether it is perishable or not and then create object
+    // Determine whether it is perishable or not
     cout << "Enter [1] to add a Perishable item and [0] to add a Non Perishable item:\n";
     while (!validateDigits(perishable)) {
         cout << "Invalid input. Enter 0 or 1." << endl;
@@ -132,6 +134,7 @@ Item* createItem() {
     }
 }
 
+// Determine whether id is a valid integer before deleting it through the inventory class
 int deleteItem() {
     int id;
 
@@ -143,18 +146,12 @@ int deleteItem() {
     return id;
 }
 
-/*
-Item* createItem() {
-    int perishable; // 0 = false, 1 = true;
-
-    // First, determine whether it is a perishable or non persihable item.
-}
-*/
 int main() {
     // Create an inventory object (capacity of 5) and choice variable to behin the program
     Inventory inv(5);
     int choice = 0;
     
+    // Main loop
     do {
         // Begin by displaying options and grabbing input
         display_options();
