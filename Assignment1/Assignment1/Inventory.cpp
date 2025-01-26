@@ -82,9 +82,10 @@ vector<Item*> readFromFile(const string& filename) {
         Perishability|ID|Name|Qty|Price|Exp Date or Warranty
 
         -> separatorPosition and prevPosition is used to track the position of each '|' to separate each piece of data.
+        using size_t as they are unsigned types which would help with indexing our string postiions
         */
-        int separatorPosition = 0;
-        int prevPosition = 0;
+        size_t separatorPosition = 0;
+        size_t prevPosition = 0;
 
         // Get perishability
         separatorPosition = line.find('|', prevPosition);
