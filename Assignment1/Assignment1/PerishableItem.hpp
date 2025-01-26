@@ -16,14 +16,18 @@ private:
 public:
     // Constructor
     PerishableItem(int id, const string& name, int quantity, double price, const string& expirationDate)
-    : Item(id, name, quantity, price), expirationDate(expirationDate) {}
+        : Item(id, name, quantity, price), expirationDate(expirationDate) {
+    }
     const string& getExpirationDate() const { return expirationDate; }
-    
+
     // Display method including exp date
     void display() override {
         cout << "[" << getId() << "] " << getName() << " | Qty: " << getQty() << "x @$" << getPrice() <<
-        " (Expires on " << getExpirationDate() << ")" << endl;
+            " (Expires on " << getExpirationDate() << ")" << endl;
     }
+
+    int getPerishability() override { return 1; }
+    string getSpecificAttribute() override { return expirationDate; }
 };
 
 #endif /* PerishableItem_hpp */
