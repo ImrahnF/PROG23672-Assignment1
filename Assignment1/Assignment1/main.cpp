@@ -6,7 +6,6 @@
 // Version History: https://github.com/ImrahnF/PROG23672-Assignment1
 
 #include <iostream>
-#include <regex>
 #include "Item.hpp"
 #include "PerishableItem.hpp"
 #include "NonPerishableItem.hpp"
@@ -68,36 +67,6 @@ bool validateString(string& choice) {
     cin.clear();
     cin.ignore(256, '\n');
     return true; // non-empty
-}
-
-// Ensures that there is a legal file string format (eg. "file.txt" instead of "file.a.z.txt")
-// https://en.cppreference.com/w/cpp/regex
-bool validateRelativeFileName(string& fileName) {
-    //bool valid = false;
-    //if (fileName.empty()) { valid = false; }
-    
-    cin >> fileName;
-    
-    regex fileRule("(\\w)+\\.txt$");
-    
-    if (regex_match(fileName, fileRule)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-string getFileName() {
-    // Placeholder
-    string fileName;
-    
-    // Get the file name
-    cout << "\nPlease enter the file name you would like to work with:\n\n";
-    while (!validateRelativeFileName(fileName)) {
-        cout << "\n\n--||Please enter a valid file name.||--\n\n" << endl;
-    }
-    
-    return fileName;
 }
 
 // Handle inputs for creating an Item, inherited by either a perishable or non perishable item
@@ -181,7 +150,10 @@ int main() {
     // Create an inventory object (capacity of 5) and choice variable to behin the program
     Inventory inv(5);
     int choice = 0;
-    
+   
+    // This is where the data is saved (can be anywhere)
+    string testFilePath = "D:\\WindowsFolders\\Documents\\School\\Winter 2025\\PROG 23672\\Data Structs Asmt 1\\InventoryData.txt";
+
     // Main loop
     do {
         // Begin by displaying options and grabbing input
@@ -192,32 +164,32 @@ int main() {
             cout << "\n\n--||Invalid input. Please try again||--\n\n" << endl;
             continue; // Skip everything and try again.
         }
-        
+
         // Complete each task.
         switch (choice) {
-            case 1:
-                inv.addItem(createItem());
-                break;
-            case 2:
-                inv.removeItem(deleteItem());
-                break;
-            case 3:
-                inv.displayItems();
-                break;
-            case 4:
-                inv.saveToFile(getFileName());
-                break;
-            case 5:
-                inv.loadFromFile(getFileName());
-                break;
-            case 6:
-                cout << "\n\n--||Exiting program...||--\n\n\n";
-                break;
-            default:
-                cout << "\n\n--||Invalid choice. Try again.||--\n\n\n";
+        case 1:
+            inv.addItem(createItem());
+            break;
+        case 2:
+            inv.removeItem(deleteItem());
+            break;
+        case 3:
+            inv.displayItems();
+            break;
+        case 4:
+            inv.saveToFile(testFilePath);
+            break;
+        case 5:
+            inv.loadFromFile(testFilePath);
+            break;
+        case 6:
+            cout << "\n\n--||Exiting program...||--\n\n\n";
+            break;
+        default:
+            cout << "\n\n--||Invalid choice. Try again.||--\n\n\n";
         }
 
     } while (choice != 6); // 6 is the "exit code"
-    
+
     return 0;
 }
